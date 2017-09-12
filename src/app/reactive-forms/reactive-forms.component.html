@@ -1,0 +1,22 @@
+<h1>Reactive Forms</h1>
+<h2>Hero Detail</h2>
+<h3><i>FormControl</i></h3>
+<label class="center-block">Name:
+    <!-- FormControl -->
+    <input class="form-control" [formControl]="name">
+</label>
+<p>Input value: {{ name.value | json }}</p>
+<br>
+<br>
+
+
+<h3><i>FormControl in FormGroup</i></h3>
+<!-- FormGroup -->
+<form [formGroup]="heroForm" novalidate>
+    <div class="form-group"> <!-- Bootstrap class -->
+        <label class="center-block">Name:
+            <input class="form-control" formControlName="name">
+        </label>
+    </div>
+</form>
+<p>Form value: {{ heroForm.value | json }}</p>
