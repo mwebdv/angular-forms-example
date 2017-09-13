@@ -54,7 +54,7 @@
       </div>
   </form>
   <p>Form value: {{ heroForm.value | json }}</p>
-  <p>Form value: {{ heroForm.status | json }}</p>
+  <p>Form status: {{ heroForm.status | json }}</p>
   <p>Form changed: {{ heroForm.dirty }}</p> <!-- unchanged: .pristine  -->
   <p>Form touched: {{ heroForm.touched }}</p> <!-- untouched: .untouched  -->
   <p>Name value: {{ heroForm.get('name').value }}</p>
