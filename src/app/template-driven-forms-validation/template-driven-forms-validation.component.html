@@ -1,0 +1,57 @@
+<h1>Template driven Forms with Validation</h1>
+
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()" (onValueChanges)="change($event)" #heroTemplateForm="ngForm" novalidate>
+    {{diagnostic}}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel" isNonNumeric
+        #spy>
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        Name is required. No numbers allowed.
+      </div>
+    </div> Classes of Name: <b>{{spy.className}}</b>
+    <fieldset ngModelGroup="address" #address="ngModelGroup">
+      <label for="street">Street</label>
+      <input type="text" class="form-control" id="street" [(ngModel)]="model.addresses[0].street" name="street" />
+
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" [(ngModel)]="model.addresses[0].city" name="city" />
+    </fieldset>
+
+    <div class="form-group">
+      <label for="power">Hero Power</label>
+      <select class="form-control" id="power" required [(ngModel)]="model.power" name="power" #power="ngModel">
+        <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+      </select>
+      <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+        Power is required
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!heroTemplateForm.form.valid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="newTemplateHero(); heroTemplateForm.reset()">New Hero</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">Name</div>
+    <div class="col-xs-9  pull-left">{{ model.name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Power</div>
+    <div class="col-xs-9 pull-left">{{ model.power }}</div>
+  </div>
+  Address:
+  <div class="row">
+    <div class="col-xs-3">Street</div>
+    <div class="col-xs-9 pull-left">{{ model.addresses[0].street }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">City</div>
+    <div class="col-xs-9 pull-left">{{ model.addresses[0].city }}</div>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>

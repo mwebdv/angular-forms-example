@@ -4,12 +4,12 @@ import { POWERS, Address, Hero } from './../data-model';
 import { validateNonNumericString } from './../Validators/string-validator'
 
 @Component({
-  selector: 'app-reactive-validation',
-  templateUrl: './reactive-validation.component.html',
-  styleUrls: ['./reactive-validation.component.css']
+  selector: 'app-reactive-forms-validation',
+  templateUrl: './reactive-forms-validation.component.html',
+  styleUrls: ['./reactive-forms-validation.component.css']
 })
 
-export class ReactiveValidationComponent {
+export class ReactiveFormsValidationComponent {
     heroForm: FormGroup;
     powers = POWERS;
 

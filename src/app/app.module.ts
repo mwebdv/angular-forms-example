@@ -11,10 +11,11 @@ import { AppComponent } from './app.component';
 // add
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
-import { ReactiveValidationComponent } from './reactive-validation/reactive-validation.component';
+import { ReactiveFormsValidationComponent } from './reactive-forms-validation/reactive-forms-validation.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ValidateNonNumericString } from './Validators/string-validator';
+import { TemplateDrivenFormsValidationComponent } from './template-driven-forms-validation/template-driven-forms-validation.component';
 
 
 
@@ -24,7 +25,8 @@ import { ValidateNonNumericString } from './Validators/string-validator';
     TemplateDrivenFormsComponent,
     ReactiveFormsComponent,
     ValidateNonNumericString,
-    ReactiveValidationComponent,
+    ReactiveFormsValidationComponent,
+    TemplateDrivenFormsValidationComponent,
   ],
   imports: [
     BrowserModule,
