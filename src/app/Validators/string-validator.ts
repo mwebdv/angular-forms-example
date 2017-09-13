@@ -19,7 +19,7 @@ export function validateNonNumericString() : ValidatorFn {
 }
 
 @Directive({
-    selector: '[isNonNumeric][ngModel],[isNonNumeric][formControlName]',
+    selector: '[isNonNumeric][ngModel]',
     providers: [
       { provide: NG_VALIDATORS, useExisting: ValidateNonNumericString, multi: true }
     ]
